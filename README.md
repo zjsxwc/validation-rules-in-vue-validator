@@ -1,1 +1,1 @@
-## validation-rules in Vue-validation
+## validation-rules in vue-validator
