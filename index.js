@@ -20,24 +20,24 @@ requirejs.config({
  * entry point
  */
 
-define(['vue', 'vue-validator', 'custom/rules', 'jquery'], function(Vue, validator, rules, $) {
+define(['vue', 'vue-validator', 'custom/validation-rules', 'jquery'], function(Vue, validator, rules, $) {
     console.log(rules['rule1'])
     console.log(rules['rule2'])
     console.log($)
     console.log($('#user-form'))
-        // console.log(f)
-        // console.log(h)
-        // var Vue = require('vue')
-        // console.log(Vue)
-        // var validator = require('vue-validator')
-        // console.log(validator)
+    // var Vue = require('vue')
+    // console.log(Vue)
+    // var validator = require('vue-validator')
+    // console.log(validator)
     Vue.use(validator)
 
     var form = new Vue({
+        el: '#user-form',
         validator: {
             validates: {
                 email: function(val) {
-                    return /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(val)
+                    return rules['testEmail'].pattern.test(val)
+                    // return /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(val)
                 }
             }
         },
@@ -53,5 +53,5 @@ define(['vue', 'vue-validator', 'custom/rules', 'jquery'], function(Vue, validat
                 console.log($)
             }
         }
-    }).$mount('#user-form')
+    })//.$mount('#user-form')
 })
