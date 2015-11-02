@@ -10,6 +10,7 @@
       email: <input type="text" v-model="email" v-validate="required, email"><br />
       age: <input type="text" v-model="age" v-validate="required, min: 18"><br />
       zip: <input type="text" v-model="zip" v-validate="required, pattern: /^[0-9]{3}-[0-9]{4}$/"><br />
+      test in range: <input type="number" v-model="tnum" v-validate="required, numberInRange"><br />
       <div v-on="click: myClick">XX</div>
       <input type="submit" value="send" v-if="valid">
       <div>
@@ -26,6 +27,8 @@
         <p v-if="validation.zip.dirty && validation.zip.required">zip: required</p>
         <p v-if="validation.zip.dirty && validation.zip.pattern">zip: invalid format</p>
         <p v-if="validation.zip.valid">zip: OK</p>
+        <p v-if="validation.tnum.dirty && validation.tnum.numberInRange">zip: numberInRange fail</p>
+        <p v-if="validation.tnum.valid">zip: OK</p>
       </div>
     </form>
     <script data-main="index.js" src="bower_components/requirejs/require.js"></script>

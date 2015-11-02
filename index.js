@@ -38,6 +38,10 @@ define(['vue', 'vue-validator', 'custom/validation-rules', 'jquery'], function(V
                 email: function(val) {
                     return rules['testEmail'].pattern.test(val)
                     // return /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(val)
+                },
+                numberInRange: function(val) {
+                    return rules['testInRange'].valid(val)
+                    // return /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(val)
                 }
             }
         },
@@ -45,7 +49,8 @@ define(['vue', 'vue-validator', 'custom/validation-rules', 'jquery'], function(V
             name: '',
             age: 18,
             email: '',
-            zip: '11112222'
+            zip: '11112222',
+            tnum: 4000
         },
         methods: {
             myClick: function(e) {
