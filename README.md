@@ -1,1 +1,1 @@
-# test-vuejs-requirejs
+## validation-rules in Vue-validation
