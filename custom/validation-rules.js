@@ -18,6 +18,7 @@ define({
 
 	testInRange : {
 		valid : function($v) {
+			//remote valid, $.post(...)
 			return ($v >= 1000) && ($v <= 6000)
 		},
 		message : 'not in range'
