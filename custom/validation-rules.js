@@ -1,6 +1,6 @@
 define({
 	rule1 : {
-		pattern : '/^1\d{10}$/',
+		pattern : /^1\d{10}$/,
 		message : 'must be number'
 	},
 
